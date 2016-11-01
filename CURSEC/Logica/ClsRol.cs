@@ -42,12 +42,13 @@ namespace Logica
 
         public void listarRoles(ComboBox cmb)
         {
-            
+
             DataSet ds = new DataSet();
             ClsConexion objConexion = new ClsConexion();
             string sentencia = "SELECT NombreRol FROM Roles";
             ds = objConexion.consultar(sentencia);
-            for (int i=0;i<ds.Tables[0].Rows.Count;i++) {
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
                 cmb.Items.Add(ds.Tables[0].Rows[i]["NombreRol"]);
             }
             cmb.SelectedIndex = 2;

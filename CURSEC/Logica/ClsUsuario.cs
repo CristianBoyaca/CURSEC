@@ -49,20 +49,23 @@ namespace Logica
             }
         }
 
-       
-       
-    public string iniciarSesion(int idRol)
+
+
+        public string iniciarSesion(int idRol)
         {
-            string rol="";
+            string rol = "";
             DataSet ds = new DataSet();
             ClsConexion objConexion = new ClsConexion();
-            string sentencia= "SELECT IdRol FROM Usuarios u JOIN RolesUsuarios ru ON u.Identificacion=ru.Identificacion WHERE u.Identificacion='" + identificacion + "'AND u.contrasena='" + contrasena + "'AND ru.IdRol='" +idRol+"'";
+            string sentencia = "SELECT IdRol FROM Usuarios u JOIN RolesUsuarios ru ON u.Identificacion=ru.Identificacion WHERE u.Identificacion='" + identificacion + "'AND u.contrasena='" + contrasena + "'AND ru.IdRol='" + idRol + "'";
 
             ds = objConexion.consultar(sentencia);
-            if (ds.Tables[0].Rows.Count==0) {
-                rol="0";
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                rol = "0";
             }
-            else { rol =ds.Tables[0].Rows[0][0].ToString();
+            else
+            {
+                rol = ds.Tables[0].Rows[0][0].ToString();
             }
             return rol;
 

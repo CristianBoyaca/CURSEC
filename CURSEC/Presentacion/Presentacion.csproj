@@ -116,8 +116,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Logica1\Logica.csproj">
-      <Project>{6617af79-391a-4c5a-a450-eddde4e0b4e7}</Project>
+    <ProjectReference Include="..\Logica\Logica.csproj">
+      <Project>{5feb5d12-67ad-4a6c-88fc-5d29f2363ec9}</Project>
       <Name>Logica</Name>
     </ProjectReference>
   </ItemGroup>

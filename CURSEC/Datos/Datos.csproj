@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6617AF79-391A-4C5A-A450-EDDDE4E0B4E7}</ProjectGuid>
+    <ProjectGuid>{DDA2AEFC-8E87-41F4-B6D1-38F3D360D396}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Logica</RootNamespace>
-    <AssemblyName>Logica</AssemblyName>
+    <RootNamespace>Datos</RootNamespace>
+    <AssemblyName>Datos</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -41,15 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClsRol.cs" />
-    <Compile Include="ClsUsuario.cs" />
+    <Compile Include="ClsConexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Datos1\Datos.csproj">
-      <Project>{c9199738-13d5-4b13-aaf4-9e40db2f6f38}</Project>
-      <Name>Datos</Name>
-    </ProjectReference>
+    <Folder Include="BD\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -16,21 +16,23 @@ namespace Datos
         SqlDataAdapter adaptador;
         DataSet ds;
 
-       
+
         public void conectar()
         {
-            try {
-                  conexion = new SqlConnection("Data Source=localhost;Initial Catalog=CURSEC;User Id=admin;Password=123456");
-                  conexion.Open();
-                 }
+            try
+            {
+                conexion = new SqlConnection("Data Source=localhost;Initial Catalog=CURSEC;User Id=admin;Password=123456");
+                conexion.Open();
+            }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: "+ex.Message);
+                MessageBox.Show("Error: " + ex.Message);
             }
 
         }
 
-        public void desconectar() {
+        public void desconectar()
+        {
             conexion.Close();
         }
 
@@ -39,14 +41,17 @@ namespace Datos
             bool verificar;
             conectar();
             comando = new SqlCommand();
-            try {
+            try
+            {
                 comando.CommandText = sentencia;
-                comando.Connection=conexion;
+                comando.Connection = conexion;
                 comando.ExecuteNonQuery();
-                verificar=true;
-            } catch (Exception ex) {
-                MessageBox.Show("Error"+ex.Message);
-                verificar= false;
+                verificar = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error" + ex.Message);
+                verificar = false;
             }
             desconectar();
             return verificar;
@@ -56,11 +61,14 @@ namespace Datos
         {
             conectar();
             ds = new DataSet();
-            try {
-                adaptador = new SqlDataAdapter(sentencia,conexion);
+            try
+            {
+                adaptador = new SqlDataAdapter(sentencia, conexion);
                 adaptador.Fill(ds);
-            } catch (Exception ex) {
-                MessageBox.Show("Error "+ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error " + ex.Message);
             }
 
             desconectar();
