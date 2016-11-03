@@ -19,9 +19,10 @@ namespace Presentacion
         }
 
         int indice;
+        ClsDatoUsuario objDatoUsuario = new ClsDatoUsuario();
         private void frmConsultarUsuario_Load(object sender, EventArgs e)
         {
-            ClsDatoUsuario objDatoUsuario = new ClsDatoUsuario();
+            
             dgvUsuarios.DataSource = objDatoUsuario.listarUsuarios().Tables[0];
             ClsCiudad objCiudad = new ClsCiudad();
             cmbCiudad.DataSource = objCiudad.listarCiudades().Tables[0];
@@ -48,6 +49,7 @@ namespace Presentacion
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             indice = dgvUsuarios.CurrentRow.Index;
+            txtIdentificacion.Text= dgvUsuarios.Rows[indice].Cells[0].Value.ToString();
             txtPrimerNombre.Text = dgvUsuarios.Rows[indice].Cells[1].Value.ToString();
             txtSegundoNombre.Text = dgvUsuarios.Rows[indice].Cells[2].Value.ToString();
             txtPrimerApellido.Text = dgvUsuarios.Rows[indice].Cells[3].Value.ToString();
@@ -59,6 +61,26 @@ namespace Presentacion
             cmbCargo.Text = dgvUsuarios.Rows[indice].Cells[9].Value.ToString();
             cmbArea.Text = dgvUsuarios.Rows[indice].Cells[10].Value.ToString();
             cmbEntidad.Text = dgvUsuarios.Rows[indice].Cells[11].Value.ToString();
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            ClsDatoUsuario objDatoUsuario = new ClsDatoUsuario();
+            objDatoUsuario.Identificacion = txtIdentificacion.Text;
+            objDatoUsuario.PrimerNombre = txtPrimerNombre.Text;
+            objDatoUsuario.SegundoNombre = txtSegundoNombre.Text;
+            objDatoUsuario.PrimerApellido = txtPrimerApellido.Text;
+            objDatoUsuario.SegundoApellido = txtSegundoApellido.Text;
+            DateTime dt = Convert.ToDateTime(dtpFecha.Value.ToString("MM/dd/yyyy"));
+            objDatoUsuario.FechaNacimiento = dt;
+            objDatoUsuario.CiudadNacimiento = int.Parse(cmbCiudad.SelectedValue.ToString());
+            objDatoUsuario.Departamento = int.Parse(cmbDepartamento.SelectedValue.ToString());
+            objDatoUsuario.Sexo = cmbSexo.Text;
+            objDatoUsuario.Cargo = int.Parse(cmbArea.SelectedValue.ToString());
+            objDatoUsuario.Area = int.Parse(cmbArea.SelectedValue.ToString());
+            objDatoUsuario.IdEntidad = int.Parse(cmbEntidad.SelectedValue.ToString());
+            objDatoUsuario.actualizarUsuario();
+            dgvUsuarios.DataSource = objDatoUsuario.listarUsuarios().Tables[0];
         }
     }
 }

@@ -51,6 +51,9 @@
             this.cmbEntidad = new System.Windows.Forms.ComboBox();
             this.cmbCargo = new System.Windows.Forms.ComboBox();
             this.cmbArea = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtIdentificacion = new System.Windows.Forms.TextBox();
+            this.btnActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -251,11 +254,41 @@
             this.cmbArea.Size = new System.Drawing.Size(161, 21);
             this.cmbArea.TabIndex = 34;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(510, 101);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Identificación:";
+            // 
+            // txtIdentificacion
+            // 
+            this.txtIdentificacion.Enabled = false;
+            this.txtIdentificacion.Location = new System.Drawing.Point(596, 98);
+            this.txtIdentificacion.Name = "txtIdentificacion";
+            this.txtIdentificacion.Size = new System.Drawing.Size(100, 20);
+            this.txtIdentificacion.TabIndex = 36;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(739, 96);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.TabIndex = 37;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
             // frmConsultarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1341, 378);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.txtIdentificacion);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.cmbArea);
             this.Controls.Add(this.cmbCargo);
             this.Controls.Add(this.cmbEntidad);
@@ -313,5 +346,8 @@
         private System.Windows.Forms.ComboBox cmbEntidad;
         private System.Windows.Forms.ComboBox cmbCargo;
         private System.Windows.Forms.ComboBox cmbArea;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtIdentificacion;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }
