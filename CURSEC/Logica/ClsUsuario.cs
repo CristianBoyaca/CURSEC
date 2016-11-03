@@ -93,7 +93,6 @@ namespace Logica
 
             ClsConexion objConexion = new ClsConexion();
             string sentencia = "UPDATE ciudaddes SET nombreCiudad='" + nombreCiudad + "' WHERE codigoCiudad=" + codigo;
-
             if (objConexion.ejecutar(sentencia))
             {
                 MessageBox.Show("Registro Exitoso");

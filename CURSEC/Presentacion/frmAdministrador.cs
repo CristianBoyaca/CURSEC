@@ -30,5 +30,12 @@ namespace Presentacion
             formLogin.Show();
             this.Hide();
         }
+
+        private void registrarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRegistrarUsuario formRegistrar = new frmRegistrarUsuario();
+            formRegistrar.MdiParent = this;
+            formRegistrar.Show();
+        }
     }
 }

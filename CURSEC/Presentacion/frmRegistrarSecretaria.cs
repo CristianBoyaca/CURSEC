@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Logica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace Presentacion
         public frmRegistrarSecretaria()
         {
             InitializeComponent();
+        }
+
+        private void frmRegistrarSecretaria_Load(object sender, EventArgs e)
+        {
+            ClsDatoUsuario objDatoUsuario = new ClsDatoUsuario();
+            objDatoUsuario.listarSecretarios(cmbSecretario);
         }
     }
 }

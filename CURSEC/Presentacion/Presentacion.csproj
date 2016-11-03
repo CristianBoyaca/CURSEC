@@ -64,6 +64,12 @@
     <Compile Include="frmRegistrarSecretaria.Designer.cs">
       <DependentUpon>frmRegistrarSecretaria.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRegistrarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarUsuario.Designer.cs">
+      <DependentUpon>frmRegistrarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSecretaria.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarSecretaria.resx">
       <DependentUpon>frmRegistrarSecretaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarUsuario.resx">
+      <DependentUpon>frmRegistrarUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSecretaria.resx">
       <DependentUpon>frmSecretaria.cs</DependentUpon>
