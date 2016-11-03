@@ -54,17 +54,13 @@ namespace Logica
             }
         }
 
-        public void listarCiudades(ComboBox cmb)
+        public DataSet listarCiudades()
         {
             DataSet ds = new DataSet();
             ClsConexion objConexion = new ClsConexion();
-            string sentencia = "SELECT NombreCiudad FROM Ciudades";
+            string sentencia = "SELECT * FROM Ciudades";
             ds = objConexion.consultar(sentencia);
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-            {
-                cmb.Items.Add(ds.Tables[0].Rows[i]["NombreCiudad"]);
-            }
-            cmb.SelectedIndex=0;
+            return ds;
         }
     }
 }

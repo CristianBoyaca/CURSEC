@@ -42,17 +42,13 @@ namespace Logica
 
 
 
-        public void listarDepartamentos(ComboBox cmb)
+        public DataSet listarDepartamentos()
         {
             DataSet ds = new DataSet();
             ClsConexion objConexion = new ClsConexion();
-            string sentencia = "SELECT NombreDepartamento FROM Departamentos";
+            string sentencia = "SELECT * FROM Departamentos";
             ds = objConexion.consultar(sentencia);
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-            {
-                cmb.Items.Add(ds.Tables[0].Rows[i]["NombreDepartamento"]);
-            }
-            cmb.SelectedIndex = 0;
+            return ds;
         }
     }
 

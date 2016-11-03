@@ -11,18 +11,21 @@ namespace Logica
 {
     public class ClsDatoUsuario
     {
-        private string identificacion="";
-        private string primerNombre="";
-        private string segundoNombre="";
-        private string primerApellido="";
-        private string segundoApellido="";
+        private string identificacion = "";
+        private string primerNombre = "";
+        private string segundoNombre = "";
+        private string primerApellido = "";
+        private string segundoApellido = "";
         private DateTime fechaNacimiento = new DateTime();
-        private int ciudadNacimiento=0;
-        private int departamento=0;
-        private string sexo="";
-        private int cargo=0;
-        private int area=0;
-        private int idEntidad=0;
+        private int ciudadNacimiento = 0;
+        private int departamento = 0;
+
+        
+
+        private string sexo = "";
+        private int cargo = 0;
+        private int area = 0;
+        private int idEntidad = 0;
         private int rol = 0;
 
         public string Identificacion
@@ -194,14 +197,25 @@ namespace Logica
             }
         }
 
-        public void registrarUsuario() {
+        public void registrarUsuario(int[] roles)
+        {
+            bool verificar = false;
             ClsConexion objConexion = new ClsConexion();
-            string sentencia = "INSERT INTO DatosUsuarios(Identificacion,PrimerNombre,SegundoNombre,PrimerApellido,SegundoApellido,FechaNacimiento,CiudadNacimiento,Departamento,Sexo,Cargo,Area,idEntidad) VALUES('" + identificacion +"','"+ primerNombre +"','"+ segundoNombre +"','"+ PrimerApellido +"','"+ SegundoApellido +"','"+ fechaNacimiento +"','"+ ciudadNacimiento +"','"+ departamento +"','"+ sexo +"','"+ cargo +"','"+ area +"','"+ idEntidad +"')";
-            if (objConexion.ejecutar(sentencia)) {
-                sentencia = "INSERT INTO Usuarios(Identificacion,contrasena,Estado) VALUES('"+ identificacion +"','"+"12345678"+"','"+"1"+"')";
-                if (objConexion.ejecutar(sentencia)) {
-                    sentencia = "INSERT INTO RolesUsuarios(IdRol,Identificacion) VALUES('" + rol +"','"+ identificacion + "')";
-                    if (objConexion.ejecutar(sentencia))
+            string sentencia = "INSERT INTO DatosUsuarios(Identificacion,PrimerNombre,SegundoNombre,PrimerApellido,SegundoApellido,FechaNacimiento,CiudadNacimiento,Departamento,Sexo,Cargo,Area,idEntidad) VALUES('" + identificacion + "','" + primerNombre + "','" + segundoNombre + "','" + PrimerApellido + "','" + SegundoApellido + "','" + fechaNacimiento + "','" + ciudadNacimiento + "','" + departamento + "','" + sexo + "','" + cargo + "','" + area + "','" + idEntidad + "')";
+            if (objConexion.ejecutar(sentencia))
+            {
+                sentencia = "INSERT INTO Usuarios(Identificacion,contrasena,Estado) VALUES('" + identificacion + "','" + "12345678" + "','" + "1" + "')";
+                if (objConexion.ejecutar(sentencia))
+                {
+                    foreach (int roles1 in roles)
+                    {
+                        if (roles1 > 0)
+                        {
+                            sentencia = "INSERT INTO RolesUsuarios(IdRol,Identificacion) VALUES('" + roles1 + "','" + identificacion + "')";
+                            verificar = objConexion.ejecutar(sentencia);
+                        }
+                    }
+                    if (verificar == true)
                     {
                         MessageBox.Show("Se registro exitosamente el usuario");
                     }
@@ -216,11 +230,36 @@ namespace Logica
                 }
 
             }
-            else {
+            else
+            {
                 MessageBox.Show("No se registro exitosamente el usuario");
             }
         }
 
+        public bool validarUsuario()
+        {
+            bool verificador=false;
+            ClsConexion objConexion = new ClsConexion();
+            DataSet ds = new DataSet();
+            string sentencia = "SELECT Identificacion FROM DatosUsuarios WHERE Identificacion= '"+identificacion+"'";
+            ds = objConexion.consultar(sentencia);
+            if (ds.Tables[0].Rows.Count>0) {
+                verificador =true;
+            }
+
+            return verificador;
+        }
+
+        public DataSet listarUsuarios()
+        {
+            ClsConexion objConexion = new ClsConexion();
+            DataSet ds = new DataSet();
+            string sentencia= "SELECT du.Identificacion,du.PrimerNombre,du.SegundoNombre,du.PrimerApellido,du.SegundoApellido,du.FechaNacimiento,c.NombreCiudad AS CiudadNacimiento,d.NombreDepartamento AS Departamento,du.Sexo,ca.NombreCargo AS Cargo,a.NombreArea AS Area,e.NombreSecretaria AS Entidad FROM DatosUsuarios du  JOIN Ciudades c ON du.CiudadNacimiento=c.IdCiudad JOIN Departamentos d ON du.Departamento=d.IdDepartamento JOIN Cargos ca ON du.Cargo=ca.IdCargo JOIN Areas a ON du.Area=a.IdArea JOIN Entidades e ON du.idEntidad=e.IdEntidad";
+            ds=objConexion.consultar(sentencia);
+            return ds;
+
+
+        }
 
         public void listarSecretarios(ComboBox cmb)
         {

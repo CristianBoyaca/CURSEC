@@ -37,5 +37,12 @@ namespace Presentacion
             formRegistrar.MdiParent = this;
             formRegistrar.Show();
         }
+
+        private void consultarUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultarUsuario formConsultar = new frmConsultarUsuario();
+            formConsultar.MdiParent = this;
+            formConsultar.Show();
+        }
     }
 }

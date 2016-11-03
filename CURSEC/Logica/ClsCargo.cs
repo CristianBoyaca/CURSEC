@@ -40,7 +40,18 @@ namespace Logica
             }
         }
 
-        public void listarCargos(ComboBox cmb)
+
+        public DataSet listarCargos()
+        {
+            DataSet ds = new DataSet();
+            ClsConexion objConexion = new ClsConexion();
+            string sentencia = "SELECT * FROM Cargos";
+            ds = objConexion.consultar(sentencia);
+            return ds;
+
+        }
+
+       /* public void listarCargos(ComboBox cmb)
         {
             DataSet ds = new DataSet();
             ClsConexion objConexion = new ClsConexion();
@@ -51,6 +62,6 @@ namespace Logica
                 cmb.Items.Add(ds.Tables[0].Rows[i]["NombreCargo"]);
             }
             cmb.SelectedIndex = 0;
-        }
+        }*/
     }
 }

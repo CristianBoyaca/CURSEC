@@ -40,18 +40,14 @@ namespace Logica
             }
         }
 
-        public void listarRoles(ComboBox cmb)
+        public DataSet listarRoles()
         {
 
             DataSet ds = new DataSet();
             ClsConexion objConexion = new ClsConexion();
-            string sentencia = "SELECT NombreRol FROM Roles";
+            string sentencia = "SELECT * FROM Roles";
             ds = objConexion.consultar(sentencia);
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-            {
-                cmb.Items.Add(ds.Tables[0].Rows[i]["NombreRol"]);
-            }
-            cmb.SelectedIndex = 2;
+            return ds;
         }
     }
 }

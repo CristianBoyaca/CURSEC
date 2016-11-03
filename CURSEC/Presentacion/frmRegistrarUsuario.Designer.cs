@@ -54,8 +54,9 @@
             this.cmbArea = new System.Windows.Forms.ComboBox();
             this.cmbEntidad = new System.Windows.Forms.ComboBox();
             this.lblRol = new System.Windows.Forms.Label();
-            this.cmbRol = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.chbUsuario = new System.Windows.Forms.CheckBox();
+            this.chbSecretario = new System.Windows.Forms.CheckBox();
+            this.chbAdministrador = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblIdentificacion
@@ -205,7 +206,7 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(347, 212);
+            this.btnRegistrar.Location = new System.Drawing.Point(404, 205);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(75, 23);
             this.btnRegistrar.TabIndex = 24;
@@ -282,28 +283,45 @@
             this.lblRol.TabIndex = 32;
             this.lblRol.Text = "Rol:";
             // 
-            // cmbRol
+            // chbUsuario
             // 
-            this.cmbRol.FormattingEnabled = true;
-            this.cmbRol.Location = new System.Drawing.Point(103, 204);
-            this.cmbRol.Name = "cmbRol";
-            this.cmbRol.Size = new System.Drawing.Size(132, 21);
-            this.cmbRol.TabIndex = 33;
+            this.chbUsuario.AutoSize = true;
+            this.chbUsuario.Location = new System.Drawing.Point(66, 206);
+            this.chbUsuario.Name = "chbUsuario";
+            this.chbUsuario.Size = new System.Drawing.Size(62, 17);
+            this.chbUsuario.TabIndex = 34;
+            this.chbUsuario.Text = "Usuario";
+            this.chbUsuario.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // chbSecretario
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(682, 82);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 34;
+            this.chbSecretario.AutoSize = true;
+            this.chbSecretario.Location = new System.Drawing.Point(152, 205);
+            this.chbSecretario.Name = "chbSecretario";
+            this.chbSecretario.Size = new System.Drawing.Size(74, 17);
+            this.chbSecretario.TabIndex = 35;
+            this.chbSecretario.Text = "Secretario";
+            this.chbSecretario.UseVisualStyleBackColor = true;
+            this.chbSecretario.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // chbAdministrador
+            // 
+            this.chbAdministrador.AutoSize = true;
+            this.chbAdministrador.Location = new System.Drawing.Point(247, 205);
+            this.chbAdministrador.Name = "chbAdministrador";
+            this.chbAdministrador.Size = new System.Drawing.Size(89, 17);
+            this.chbAdministrador.TabIndex = 36;
+            this.chbAdministrador.Text = "Administrador";
+            this.chbAdministrador.UseVisualStyleBackColor = true;
             // 
             // frmRegistrarUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(746, 254);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.cmbRol);
+            this.Controls.Add(this.chbAdministrador);
+            this.Controls.Add(this.chbSecretario);
+            this.Controls.Add(this.chbUsuario);
             this.Controls.Add(this.lblRol);
             this.Controls.Add(this.cmbEntidad);
             this.Controls.Add(this.cmbArea);
@@ -366,7 +384,8 @@
         private System.Windows.Forms.ComboBox cmbArea;
         private System.Windows.Forms.ComboBox cmbEntidad;
         private System.Windows.Forms.Label lblRol;
-        private System.Windows.Forms.ComboBox cmbRol;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.CheckBox chbUsuario;
+        private System.Windows.Forms.CheckBox chbSecretario;
+        private System.Windows.Forms.CheckBox chbAdministrador;
     }
 }

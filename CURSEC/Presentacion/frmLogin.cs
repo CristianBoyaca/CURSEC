@@ -59,7 +59,10 @@ namespace Presentacion
         private void frmLogin_Load(object sender, EventArgs e)
         {
             ClsRol objRol = new ClsRol();
-            objRol.listarRoles(cmbRol);   
+            cmbRol.DataSource=objRol.listarRoles().Tables[0];
+            cmbRol.DisplayMember = "NombreRol";
+            cmbRol.ValueMember = "idRol";
+            cmbRol.SelectedIndex = 2; 
             
         }
     }

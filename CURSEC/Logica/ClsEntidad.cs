@@ -82,15 +82,12 @@ namespace Logica
             }
         }
 
-        public void listarEntidades(ComboBox cmb) {
+        public DataSet listarEntidades() {
             DataSet ds = new DataSet();
             ClsConexion objConexion = new ClsConexion();
-            string sentencia="SELECT NombreSecretaria FROM Entidades";
+            string sentencia="SELECT * FROM Entidades";
             ds = objConexion.consultar(sentencia);
-            for (int i=0;i<ds.Tables[0].Rows.Count;i++) {
-                cmb.Items.Add(ds.Tables[0].Rows[i]["NombreSecretaria"]);
-            }
-            cmb.SelectedIndex = 0;
+            return ds;
         }
     }
 
