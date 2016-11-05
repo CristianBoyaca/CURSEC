@@ -48,6 +48,7 @@
     <Compile Include="ClsDepartamento.cs" />
     <Compile Include="ClsEntidad.cs" />
     <Compile Include="ClsRol.cs" />
+    <Compile Include="ClsSesion.cs" />
     <Compile Include="ClsUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

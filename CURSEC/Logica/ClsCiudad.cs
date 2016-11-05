@@ -11,9 +11,9 @@ namespace Logica
 {
     public class ClsCiudad
     {
-        private int idCiudad;
-        private string nombreCiudad;
-        private int idDepartamento;
+        private int idCiudad=0;
+        private string nombreCiudad="";
+        private int idDepartamento=0;
 
         public int IdCiudad
         {

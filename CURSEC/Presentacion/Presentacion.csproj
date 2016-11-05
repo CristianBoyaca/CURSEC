@@ -52,6 +52,18 @@
     <Compile Include="frmAdministrador.Designer.cs">
       <DependentUpon>frmAdministrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCambiarContrasena.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCambiarContrasena.Designer.cs">
+      <DependentUpon>frmCambiarContrasena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultarSecretaria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarSecretaria.Designer.cs">
+      <DependentUpon>frmConsultarSecretaria.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultarUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +104,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmAdministrador.resx">
       <DependentUpon>frmAdministrador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCambiarContrasena.resx">
+      <DependentUpon>frmCambiarContrasena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarSecretaria.resx">
+      <DependentUpon>frmConsultarSecretaria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarUsuario.resx">
       <DependentUpon>frmConsultarUsuario.cs</DependentUpon>

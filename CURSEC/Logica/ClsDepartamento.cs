@@ -11,8 +11,8 @@ namespace Logica
 {
     public class ClsDepartamento
     {
-        private int idDepartamento;
-        private string nombreDepartamento;
+        private int idDepartamento=0;
+        private string nombreDepartamento="";
 
         public int IdDepartamento
         {

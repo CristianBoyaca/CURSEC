@@ -11,8 +11,8 @@ namespace Logica
 {
     public class ClsArea
     {
-        private int idArea;
-        private string nombreArea;
+        private int idArea=0;
+        private string nombreArea="";
 
         public int IdArea
         {

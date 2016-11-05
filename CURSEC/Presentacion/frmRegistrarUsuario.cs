@@ -56,6 +56,19 @@ namespace Presentacion
            
         }
 
+        public void limpiarCajas()
+        {
+            txtIdentificacion.ResetText();
+            txtPrimerNombre.ResetText();
+            txtSegundoNombre.ResetText();
+            txtPrimerApellido.ResetText();
+            txtSegundoApellido.ResetText();
+            dtpFecha.ResetText();
+            chbUsuario.Checked=false;
+            chbSecretario.Checked=false;
+            chbAdministrador.Checked=false;
+        }
+
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             ClsDatoUsuario objDatoUsuario = new ClsDatoUsuario();
@@ -74,32 +87,44 @@ namespace Presentacion
             objDatoUsuario.Area = int.Parse(cmbArea.SelectedValue.ToString());
             objDatoUsuario.IdEntidad = int.Parse(cmbEntidad.SelectedValue.ToString());
             //objDatoUsuario.Rol = int.Parse(cmbRol.SelectedValue.ToString()) ;
-            int[] roles = new int[3];
-            int i = 0;
-            if (chbAdministrador.Checked)
+            if (objDatoUsuario.Identificacion.Equals("") || objDatoUsuario.PrimerNombre.Equals("") || objDatoUsuario.PrimerApellido.Equals(""))
             {
-                roles[i] = 1;
-                i++;
+                MessageBox.Show("Se debe ingresar el numero de identificación,el primer nombre y el primer apellido","Registro Usuario");
             }
-            if (chbSecretario.Checked)
+            else
             {
-                roles[i] = 2;
-                i++;
-            }
-            if (chbUsuario.Checked)
-            {
-                roles[i] = 3;
-                i++;
-            }
-            if (roles[0]==0) {
-                MessageBox.Show("Debe seleccionar minimo un rol", "Rol");
+                int[] roles = new int[3];
+                int i = 0;
+                if (chbAdministrador.Checked)
+                {
+                    roles[i] = 1;
+                    i++;
+                }
+                if (chbSecretario.Checked)
+                {
+                    roles[i] = 2;
+                    i++;
+                }
+                if (chbUsuario.Checked)
+                {
+                    roles[i] = 3;
+                    i++;
+                }
+                if (roles[0] == 0)
+                {
+                    MessageBox.Show("Debe seleccionar minimo un rol", "Rol");
+
+                }
+                else if (objDatoUsuario.validarUsuario())
+                {
+                    MessageBox.Show("Usuario ya se encuentra registrado", "Usuario");
+                }
+                else
+                {
+                    objDatoUsuario.registrarUsuario(roles);
+                    limpiarCajas();
+                }
                 
-            }
-            else if(objDatoUsuario.validarUsuario())
-            {
-                MessageBox.Show("Usuario ya se encuentra registrado", "Usuario");
-            }else {
-                objDatoUsuario.registrarUsuario(roles);
             }
         }
 

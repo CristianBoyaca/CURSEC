@@ -44,5 +44,20 @@ namespace Presentacion
             formConsultar.MdiParent = this;
             formConsultar.Show();
         }
+
+        private void consultarSecretariaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultarSecretaria formConsultar = new frmConsultarSecretaria();
+            formConsultar.MdiParent = this;
+            formConsultar.Show();
+        }
+
+        private void cambiarContraseñaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCambiarContrasena formCambiar = new frmCambiarContrasena();
+            formCambiar.MdiParent = this;
+            formCambiar.Show();
+
+        }
     }
 }

@@ -23,5 +23,25 @@ namespace Presentacion
             ClsDatoUsuario objDatoUsuario = new ClsDatoUsuario();
             objDatoUsuario.listarSecretarios(cmbSecretario);
         }
+
+        public void limpiarCajas()
+        {
+            txtNombreSecretaria.ResetText();
+            txtTelefono.ResetText();
+            txtDireccion.ResetText();
+        }
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            ClsEntidad objEntidad = new ClsEntidad();
+            objEntidad.NombreSecretaria = txtNombreSecretaria.Text;
+            objEntidad.NombreSecretario = cmbSecretario.Text;
+            objEntidad.DireccionSe = txtDireccion.Text;
+            objEntidad.Telefono = txtTelefono.Text;
+            if (objEntidad.NombreSecretaria!="" && objEntidad.NombreSecretario!="" && objEntidad.DireccionSe!="" && objEntidad.Telefono!="") { 
+            objEntidad.registrarSecretaria();
+            limpiarCajas();
+            }
+            else { MessageBox.Show("Se debe diligenciar todos los campos del formulario","Registro Secretaria"); }
+        }
     }
 }

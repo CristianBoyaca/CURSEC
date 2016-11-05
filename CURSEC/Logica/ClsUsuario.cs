@@ -66,59 +66,13 @@ namespace Logica
             else
             {
                 rol = ds.Tables[0].Rows[0][0].ToString();
+                ClsSesion.documento = identificacion;
             }
             return rol;
 
         }
 
-        /*public void registrarCiudad()
-        {
-
-            ClsConexion objConexion = new ClsConexion();
-          
-            string sentencia = "INSERT INTO ciudades(nombreCiudad) VALUES('" + nombreCiudad + "')";
-
-            if (objConexion.ejecutar(sentencia))
-            {
-                MessageBox.Show("Registro Exitoso");
-            }
-            else
-            {
-                MessageBox.Show("No se registro la ciudad ");
-            }
-        }
-
-        public void actualizarCiudad()
-        {
-
-            ClsConexion objConexion = new ClsConexion();
-            string sentencia = "UPDATE ciudaddes SET nombreCiudad='" + nombreCiudad + "' WHERE codigoCiudad=" + codigo;
-            if (objConexion.ejecutar(sentencia))
-            {
-                MessageBox.Show("Registro Exitoso");
-            }
-            else
-            {
-                MessageBox.Show("No se actualizo la ciudad ");
-            }
-        }
-
-
-        public void eliminarCiudad()
-        {
-
-            ClsConexion objConexion = new ClsConexion();
-            string sentencia = "DELETE FROM WHERE codigo=" + codigo;
-
-            if (objConexion.ejecutar(sentencia))
-            {
-                MessageBox.Show("Eliminación Exitosa");
-            }
-            else
-            {
-                MessageBox.Show("No se eliminó la ciudad ");
-            }
-        }*/
+     
 
         public DataSet consultarTodos()
         {
@@ -133,6 +87,16 @@ namespace Logica
             return ds;
         }
 
-
+        public void cambiarContrasena()
+        {
+            ClsConexion objConexion = new ClsConexion();
+            string sentencia = " UPDATE Usuarios SET contrasena='" +contrasena+"'WHERE Identificacion="+identificacion;
+            if (objConexion.ejecutar(sentencia)) {
+                MessageBox.Show("Se ha cambiado la contraseña exitosamente","Cambio Contraseña");
+            } else
+            {
+                MessageBox.Show("No se ha podido cambiar la contraseña", "Cambio Contraseña");
+            }
+        }
     }
 }

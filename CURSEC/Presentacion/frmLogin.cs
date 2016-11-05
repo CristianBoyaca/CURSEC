@@ -29,7 +29,7 @@ namespace Presentacion
             objUsuario.Identificacion = txtIdentificacion.Text;
             objUsuario.Contrasena = txtContrasenia.Text;
             string redireccionar = "";
-            redireccionar = objUsuario.iniciarSesion(cmbRol.SelectedIndex + 1);
+            redireccionar = objUsuario.iniciarSesion(int.Parse(cmbRol.SelectedValue.ToString()));
             if (redireccionar.Equals("1")) {
                 frmAdministrador formAdministrador = new frmAdministrador();
                 formAdministrador.Show();

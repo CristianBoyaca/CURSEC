@@ -11,8 +11,8 @@ namespace Logica
 {
     public class ClsCargo
     {
-        private int idCargo;
-        private string nombreCargo;
+        private int idCargo=0;
+        private string nombreCargo="";
 
         public int IdCargo
         {

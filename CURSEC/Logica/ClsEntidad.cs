@@ -11,11 +11,11 @@ namespace Logica
 {
     public class ClsEntidad
     {
-        private int idEntidad;
-        private string nombreSecretaria;
-        private string nombreSecretario;
-        private string direccionSe;
-        private string telefono;
+        private int idEntidad=0;
+        private string nombreSecretaria="";
+        private string nombreSecretario="";
+        private string direccionSe="";
+        private string telefono="";
 
         public int IdEntidad
         {
@@ -89,6 +89,60 @@ namespace Logica
             ds = objConexion.consultar(sentencia);
             return ds;
         }
+
+        public void registrarSecretaria()
+        {
+            ClsConexion objConexion = new ClsConexion();
+            string sentencia = "INSERT INTO Entidades(NombreSecretaria,NombreSecretario,DireccionSe,Telefono)VALUES ('"+nombreSecretaria+"','"+nombreSecretario+"','"+direccionSe+"','"+telefono+"')";
+            if (objConexion.ejecutar(sentencia))
+            {
+                MessageBox.Show("Se registro exitosamente la secretaria","Secretaria");
+            }
+            else {
+                MessageBox.Show("No se registro exitosamente la secretaria", "Secretaria");
+            }
+        }
+
+        public void actualizarEntidad() {
+            ClsConexion objConexion = new ClsConexion();
+            string sentencia = "UPDATE Entidades SET NombreSecretaria='"+nombreSecretaria+ "',NombreSecretario='"+nombreSecretario+ "',DireccionSe='"+direccionSe+ "',Telefono='"+telefono+"'WHERE IdEntidad="+idEntidad;
+            if (objConexion.ejecutar(sentencia))
+            {
+                MessageBox.Show("Se actualizo exitosamente la secretaria", "Secretaria");
+            }
+            else
+            {
+                MessageBox.Show("No se actualizo exitosamente la secretaria", "Secretaria");
+            }
+        }
+
+
+        public void eliminarEntidad()
+        {
+            ClsConexion objConexion = new ClsConexion();
+            string sentencia = "DELETE Entidades WHERE IdEntidad=" + idEntidad;
+            if (objConexion.ejecutar(sentencia))
+            {
+                MessageBox.Show("Se elimino exitosamente la secretaria", "Secretaria");
+            }
+            else
+            {
+                MessageBox.Show("No se elimino exitosamente la secretaria", "Secretaria");
+            }
+        }
+        public DataSet listarSecretarias()
+        {
+            DataSet ds = new DataSet();
+            ClsConexion objConexion = new ClsConexion();
+            string sentencia = "SELECT * FROM Entidades";
+            ds = objConexion.consultar(sentencia);
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                MessageBox.Show("No se encontraron secretarias");
+            }
+            return ds;
+        }
+    }
     }
 
-}
+

@@ -11,8 +11,8 @@ namespace Logica
 {
     public class ClsRol
     {
-        private int idRol;
-        private string nombreRol;
+        private int idRol=0;
+        private string nombreRol="";
 
         public int IdRol
         {

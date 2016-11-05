@@ -239,12 +239,12 @@ namespace Logica
         public void actualizarUsuario()
         {
             ClsConexion objConexion = new ClsConexion();
-            string sentencia = "UPDATE DatosUsuarios SET PrimerNombre='"+primerNombre+"',SegundoNombre='" +SegundoNombre+ "',PrimerApellido='"+primerApellido +"',SegundoApellido='"+segundoApellido+ "',FechaNacimiento='"+fechaNacimiento+ "',CiudadNacimiento='"+ciudadNacimiento+ "',Departamento='"+departamento+ "',Sexo='"+sexo+ "',Cargo='"+cargo+ "',Area='"+area+ "',idEntidad='"+idEntidad + "' WHERE Identificacion="+identificacion;
+            string sentencia = "UPDATE DatosUsuarios SET PrimerNombre='"+primerNombre+"',SegundoNombre='" +SegundoNombre+ "',PrimerApellido='"+primerApellido +"',SegundoApellido='"+segundoApellido+ "',FechaNacimiento='"+fechaNacimiento+ "',CiudadNacimiento='"+ciudadNacimiento+ "',Departamento='"+departamento+ "',Sexo='"+sexo+ "',Cargo='"+cargo+ "',Area='"+area+ "' WHERE Identificacion="+identificacion;
             objConexion.ejecutar(sentencia);
             if (objConexion.ejecutar(sentencia)) {
-                MessageBox.Show("Se actualizo exitosamente el usuario");
+                MessageBox.Show("Se actualizo exitosamente el usuario","Actualización De Usuario");
             }
-            else { MessageBox.Show("No se actualizo exitosamente el usuario"); }
+            else { MessageBox.Show("No se actualizo exitosamente el usuario", "Actualización De Usuario"); }
         }
 
         public bool validarUsuario()
@@ -282,7 +282,9 @@ namespace Logica
             {
                 cmb.Items.Add(ds.Tables[0].Rows[i][0]);
             }
+            if (ds.Tables[0].Rows.Count > 0) { 
             cmb.SelectedIndex = 0;
+            }
         }
     }
 }

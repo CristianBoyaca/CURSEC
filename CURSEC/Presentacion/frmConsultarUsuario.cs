@@ -44,8 +44,19 @@ namespace Presentacion
             cmbEntidad.DataSource = objEntidad.listarEntidades().Tables[0];
             cmbEntidad.DisplayMember = "NombreSecretaria";
             cmbEntidad.ValueMember = "IdEntidad";
+            cmbSexo.SelectedIndex = 0;
         }
 
+        public void limpiarCajas()
+        {
+            txtIdentificacion.ResetText();
+            txtPrimerNombre.ResetText();
+            txtSegundoNombre.ResetText();
+            txtPrimerApellido.ResetText();
+            txtSegundoApellido.ResetText();
+            dtpFecha.ResetText();
+            
+        }
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             indice = dgvUsuarios.CurrentRow.Index;
@@ -76,11 +87,17 @@ namespace Presentacion
             objDatoUsuario.CiudadNacimiento = int.Parse(cmbCiudad.SelectedValue.ToString());
             objDatoUsuario.Departamento = int.Parse(cmbDepartamento.SelectedValue.ToString());
             objDatoUsuario.Sexo = cmbSexo.Text;
-            objDatoUsuario.Cargo = int.Parse(cmbArea.SelectedValue.ToString());
+            objDatoUsuario.Cargo = int.Parse(cmbCargo.SelectedValue.ToString());
             objDatoUsuario.Area = int.Parse(cmbArea.SelectedValue.ToString());
             objDatoUsuario.IdEntidad = int.Parse(cmbEntidad.SelectedValue.ToString());
+            if (objDatoUsuario.Identificacion.Equals("") || objDatoUsuario.PrimerNombre.Equals("") || objDatoUsuario.PrimerApellido.Equals(""))
+            {
+                MessageBox.Show("Se debe seleccionar la identificación y se debe ingresar el primer nombre y el primer apellido", "Actualización Usuario");
+            }else { 
             objDatoUsuario.actualizarUsuario();
             dgvUsuarios.DataSource = objDatoUsuario.listarUsuarios().Tables[0];
+            limpiarCajas();
+            }
         }
     }
 }
