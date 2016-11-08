@@ -44,6 +44,7 @@
     <Compile Include="ClsArea.cs" />
     <Compile Include="ClsCargo.cs" />
     <Compile Include="ClsCiudad.cs" />
+    <Compile Include="ClsCursoUsuario.cs" />
     <Compile Include="ClsDatoUsuario.cs" />
     <Compile Include="ClsDepartamento.cs" />
     <Compile Include="ClsEntidad.cs" />

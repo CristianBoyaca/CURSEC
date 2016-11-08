@@ -52,11 +52,29 @@
     <Compile Include="frmAdministrador.Designer.cs">
       <DependentUpon>frmAdministrador.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCalificarCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCalificarCurso.Designer.cs">
+      <DependentUpon>frmCalificarCurso.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCambiarContrasena.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCambiarContrasena.Designer.cs">
       <DependentUpon>frmCambiarContrasena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCambiarContraseniaPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCambiarContraseniaPersonal.Designer.cs">
+      <DependentUpon>frmCambiarContraseniaPersonal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultarInscripcion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarInscripcion.Designer.cs">
+      <DependentUpon>frmConsultarInscripcion.cs</DependentUpon>
     </Compile>
     <Compile Include="frmConsultarSecretaria.cs">
       <SubType>Form</SubType>
@@ -69,6 +87,12 @@
     </Compile>
     <Compile Include="frmConsultarUsuario.Designer.cs">
       <DependentUpon>frmConsultarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInscripcionCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInscripcionCurso.Designer.cs">
+      <DependentUpon>frmInscripcionCurso.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -105,14 +129,26 @@
     <EmbeddedResource Include="frmAdministrador.resx">
       <DependentUpon>frmAdministrador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCalificarCurso.resx">
+      <DependentUpon>frmCalificarCurso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCambiarContrasena.resx">
       <DependentUpon>frmCambiarContrasena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCambiarContraseniaPersonal.resx">
+      <DependentUpon>frmCambiarContraseniaPersonal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarInscripcion.resx">
+      <DependentUpon>frmConsultarInscripcion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarSecretaria.resx">
       <DependentUpon>frmConsultarSecretaria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarUsuario.resx">
       <DependentUpon>frmConsultarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInscripcionCurso.resx">
+      <DependentUpon>frmInscripcionCurso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
