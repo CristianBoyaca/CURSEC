@@ -21,7 +21,8 @@ namespace Presentacion
         private void frmRegistrarSecretaria_Load(object sender, EventArgs e)
         {
             ClsDatoUsuario objDatoUsuario = new ClsDatoUsuario();
-            objDatoUsuario.listarSecretarios(cmbSecretario);
+           cmbSecretario.DataSource= objDatoUsuario.listarSecretarios().Tables[0];
+            cmbSecretario.DisplayMember = "nombreCompleto";
         }
 
         public void limpiarCajas()

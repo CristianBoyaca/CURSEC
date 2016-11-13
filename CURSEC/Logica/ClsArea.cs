@@ -13,6 +13,7 @@ namespace Logica
     {
         private int idArea=0;
         private string nombreArea="";
+        private string p;
 
         public int IdArea
         {
@@ -39,6 +40,8 @@ namespace Logica
                 nombreArea = value;
             }
         }
+
+        
 
         public DataSet listarAreas() {
             DataSet ds = new DataSet();

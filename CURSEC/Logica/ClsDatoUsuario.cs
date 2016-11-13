@@ -41,6 +41,8 @@ namespace Logica
             }
         }
 
+      
+
         public string PrimerNombre
         {
             get
@@ -272,19 +274,22 @@ namespace Logica
 
         }
 
-        public void listarSecretarios(ComboBox cmb)
+      
+
+        public DataSet listarSecretarios()
         {
             DataSet ds = new DataSet();
             ClsConexion objConexion = new ClsConexion();
-            string sentencia = "SELECT CONCAT(PrimerNombre,' ',PrimerApellido) FROM DatosUsuarios WHERE Cargo=3";
+            string sentencia = "SELECT CONCAT(PrimerNombre,' ',PrimerApellido) AS nombreCompleto FROM DatosUsuarios WHERE Cargo=3";
             ds = objConexion.consultar(sentencia);
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-            {
-                cmb.Items.Add(ds.Tables[0].Rows[i][0]);
-            }
-            if (ds.Tables[0].Rows.Count > 0) { 
-            cmb.SelectedIndex = 0;
-            }
+            /* for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+             {
+                 cmb.Items.Add(ds.Tables[0].Rows[i][0]);
+             }
+             if (ds.Tables[0].Rows.Count > 0) { 
+             cmb.SelectedIndex = 0;
+             }*/
+            return ds;
         }
     }
 }

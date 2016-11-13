@@ -63,10 +63,10 @@
             // 
             // registrarCursoToolStripMenuItem
             // 
-            this.registrarCursoToolStripMenuItem.Name = "registrarCursoToolStripMenuItem";
+            this.registrarCursoToolStripMenuItem.Name = "inscribirCursoToolStripMenuItem";
             this.registrarCursoToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
-            this.registrarCursoToolStripMenuItem.Text = "Registrar Curso";
-            this.registrarCursoToolStripMenuItem.Click += new System.EventHandler(this.registrarCursoToolStripMenuItem_Click);
+            this.registrarCursoToolStripMenuItem.Text = "Inscribir Curso";
+            this.registrarCursoToolStripMenuItem.Click += new System.EventHandler(this.inscribirCursoToolStripMenuItem_Click);
             // 
             // consultarCursoToolStripMenuItem
             // 

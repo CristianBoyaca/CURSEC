@@ -122,6 +122,15 @@ namespace Logica
 
         }
 
+        public DataSet listarDocumentos(int idCurso)
+        {
+            ClsConexion objConexion = new ClsConexion();
+            DataSet ds = new DataSet();
+            string sentencia = "SELECT Identificacion FROM CursosUsuarios WHERE IdCurso='"+idCurso+"'";
+            ds = objConexion.consultar(sentencia);
+            return ds;
+        }
+
         public  void actualizarInscripcion()
         {
             ClsConexion objConexion = new ClsConexion();

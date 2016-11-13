@@ -52,6 +52,7 @@
             this.dgvSecretarias.Size = new System.Drawing.Size(673, 150);
             this.dgvSecretarias.TabIndex = 0;
             this.dgvSecretarias.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSecretarias_CellClick);
+            this.dgvSecretarias.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSecretarias_CellContentClick);
             // 
             // cmbSecretario
             // 

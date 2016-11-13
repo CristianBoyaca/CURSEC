@@ -77,7 +77,7 @@ namespace Presentacion
             objDatoUsuario.SegundoNombre = txtSegundoNombre.Text;
             objDatoUsuario.PrimerApellido = txtPrimerApellido.Text;
             objDatoUsuario.SegundoApellido = txtSegundoApellido.Text;
-            DateTime dt = Convert.ToDateTime(dtpFecha.Value.ToString("MM/dd/yyyy"));
+            DateTime dt = Convert.ToDateTime(dtpFecha.Value.ToString("yyyy/MM/dd"));
             objDatoUsuario.FechaNacimiento = dt;
             objDatoUsuario.CiudadNacimiento=int.Parse(cmbCiudad.SelectedValue.ToString());
             objDatoUsuario.Departamento=int.Parse(cmbDepartamento.SelectedValue.ToString());

@@ -24,7 +24,7 @@ namespace Presentacion
         {
             actualizarDataGridView();
             ClsDatoUsuario objDatoUsuario = new ClsDatoUsuario();
-            objDatoUsuario.listarSecretarios(cmbSecretario);
+           cmbSecretario.DataSource= objDatoUsuario.listarSecretarios().Tables[0];
         }
 
         public void actualizarDataGridView()
@@ -82,6 +82,11 @@ namespace Presentacion
             {
                 MessageBox.Show("Se debe seleccionar una secretaria","Eliminar Secretaria");
             }
+        }
+
+        private void dgvSecretarias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

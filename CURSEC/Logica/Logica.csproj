@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Logica</RootNamespace>
     <AssemblyName>Logica</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,14 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClsArea.cs" />
+    <Compile Include="ClsAsistencia.cs" />
     <Compile Include="ClsCargo.cs" />
     <Compile Include="ClsCiudad.cs" />
+    <Compile Include="ClsCurso.cs" />
     <Compile Include="ClsCursoUsuario.cs" />
     <Compile Include="ClsDatoUsuario.cs" />
     <Compile Include="ClsDepartamento.cs" />
     <Compile Include="ClsEntidad.cs" />
     <Compile Include="ClsRol.cs" />
     <Compile Include="ClsSesion.cs" />
+    <Compile Include="ClsTipoHorario.cs" />
     <Compile Include="ClsUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

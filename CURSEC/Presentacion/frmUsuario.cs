@@ -17,7 +17,7 @@ namespace Presentacion
             InitializeComponent();
         }
 
-        private void registrarCursoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void inscribirCursoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmInscripcionCurso formInscribir = new frmInscripcionCurso();
             formInscribir.MdiParent = this;

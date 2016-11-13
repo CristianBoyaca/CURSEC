@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Presentacion</RootNamespace>
     <AssemblyName>Presentacion</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -70,6 +71,18 @@
     <Compile Include="frmCambiarContraseniaPersonal.Designer.cs">
       <DependentUpon>frmCambiarContraseniaPersonal.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultarAsistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarAsistencia.Designer.cs">
+      <DependentUpon>frmConsultarAsistencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultarCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarCurso.Designer.cs">
+      <DependentUpon>frmConsultarCurso.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultarInscripcion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +112,18 @@
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarAsistencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarAsistencia.Designer.cs">
+      <DependentUpon>frmRegistrarAsistencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarCurso.Designer.cs">
+      <DependentUpon>frmRegistrarCurso.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRegistrarSecretaria.cs">
       <SubType>Form</SubType>
@@ -138,6 +163,12 @@
     <EmbeddedResource Include="frmCambiarContraseniaPersonal.resx">
       <DependentUpon>frmCambiarContraseniaPersonal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarAsistencia.resx">
+      <DependentUpon>frmConsultarAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarCurso.resx">
+      <DependentUpon>frmConsultarCurso.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarInscripcion.resx">
       <DependentUpon>frmConsultarInscripcion.cs</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +183,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarAsistencia.resx">
+      <DependentUpon>frmRegistrarAsistencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarCurso.resx">
+      <DependentUpon>frmRegistrarCurso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarSecretaria.resx">
       <DependentUpon>frmRegistrarSecretaria.cs</DependentUpon>
@@ -173,6 +210,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
