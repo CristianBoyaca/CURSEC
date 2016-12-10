@@ -173,5 +173,15 @@ namespace Logica
                 MessageBox.Show("No se elimino exitosamente su inscripción al curso", "Eliminación De Inscripción");
             }
         }
+
+        public DataSet listarCursosUsuarios()
+        {
+            ClsConexion objConexion = new ClsConexion();
+            DataSet ds = new DataSet();
+            string sentencia = "SELECT  ce.Descripcion AS Curso,count(cu.Identificacion) AS Cantidad FROM CursosUsuarios cu JOIN CursosEntidades ce ON CU.IdCurso=CE.IdCurso group by ce.Descripcion";
+            ds = objConexion.consultar(sentencia);
+            return ds;
+
+        }
     }
 }

@@ -291,5 +291,14 @@ namespace Logica
              }*/
             return ds;
         }
+
+        public DataSet buscarNombre()
+        {
+            DataSet ds = new DataSet();
+            ClsConexion objConexion = new ClsConexion();
+            string sentencia = "SELECT CONCAT(PrimerNombre,' ',PrimerApellido) AS nombre FROM DatosUsuarios d JOIN Usuarios u ON d.Identificacion=u.Identificacion WHERE u.Identificacion='"+identificacion+"'";
+            ds = objConexion.consultar(sentencia);
+            return ds;
+        }
     }
 }

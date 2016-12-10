@@ -59,5 +59,12 @@ namespace Presentacion
             formCambiar.Show();
 
         }
+
+        private void generarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReportes formReportes = new frmReportes();
+            formReportes.MdiParent = this;
+            formReportes.Show();
+        }
     }
 }
