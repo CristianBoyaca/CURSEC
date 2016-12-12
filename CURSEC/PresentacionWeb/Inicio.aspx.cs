@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Logica;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Logica;
 
 namespace PresentacionWeb
 {
@@ -12,25 +12,29 @@ namespace PresentacionWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["usuario"].Equals(""))
+            if (!IsPostBack)
             {
-                Response.Redirect("InicioSesion.aspx");
-            }else
-            {
-                lblNombre1.Text = buscarNombre();
-                lblNombre2.Text = lblNombre1.Text;
-                lblNombre3.Text = lblNombre1.Text;
+                if (Session["usuario"].Equals(""))
+                {
+                    Response.Redirect("InicioSesion.aspx");
+                }
+                else
+                {
+                    lblNombre1.Text = buscarNombre();
+                    lblNombre2.Text = lblNombre1.Text;
+                    lblNombre3.Text = lblNombre1.Text;
+                   
+                }
             }
-            
-            
+           
         }
 
         public string buscarNombre()
         {
             ClsDatoUsuario objDatoUsuario = new ClsDatoUsuario();
             objDatoUsuario.Identificacion = Session["usuario"].ToString();
-           return objDatoUsuario.buscarNombre().Tables[0].Rows[0][0].ToString();
-           
+            return objDatoUsuario.buscarNombre().Tables[0].Rows[0][0].ToString();
+
         }
     }
 }

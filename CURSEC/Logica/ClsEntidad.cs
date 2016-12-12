@@ -96,7 +96,7 @@ namespace Logica
             string sentencia = "INSERT INTO Entidades(NombreSecretaria,NombreSecretario,DireccionSe,Telefono)VALUES ('"+nombreSecretaria+"','"+nombreSecretario+"','"+direccionSe+"','"+telefono+"')";
             if (objConexion.ejecutar(sentencia))
             {
-                MessageBox.Show("Se registro exitosamente la secretaria","Secretaria");
+               // MessageBox.Show("Se registro exitosamente la secretaria","Secretaria");
             }
             else {
                 MessageBox.Show("No se registro exitosamente la secretaria", "Secretaria");
@@ -108,7 +108,7 @@ namespace Logica
             string sentencia = "UPDATE Entidades SET NombreSecretaria='"+nombreSecretaria+ "',NombreSecretario='"+nombreSecretario+ "',DireccionSe='"+direccionSe+ "',Telefono='"+telefono+"'WHERE IdEntidad="+idEntidad;
             if (objConexion.ejecutar(sentencia))
             {
-                MessageBox.Show("Se actualizo exitosamente la secretaria", "Secretaria");
+               // MessageBox.Show("Se actualizo exitosamente la secretaria", "Secretaria");
             }
             else
             {
@@ -123,7 +123,7 @@ namespace Logica
             string sentencia = "DELETE Entidades WHERE IdEntidad=" + idEntidad;
             if (objConexion.ejecutar(sentencia))
             {
-                MessageBox.Show("Se elimino exitosamente la secretaria", "Secretaria");
+               // MessageBox.Show("Se elimino exitosamente la secretaria", "Secretaria");
             }
             else
             {

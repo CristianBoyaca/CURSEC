@@ -1,216 +1,173 @@
-﻿<!DOCTYPE html>
-<script runat="server">
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Plantilla.Master.cs" Inherits="PresentacionWeb.Plantilla" %>
 
-    Protected Sub btnSalir_Click(sender As Object, e As EventArgs)
-        Session("usuario") = ""
-        Session("rol") = ""
-        Response.Redirect("InicioSesion.aspx")
-    End Sub
-
-
-    Protected Sub Page_Load(sender As Object, e As EventArgs)
-        cphMenu1.Visible = False
-        cphMenu2.Visible = False
-        cphMenu3.Visible = False
-    End Sub
-</script>
-
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Inicio</title>
-    <meta name="viewport" content="width=device-width,user-scable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="resources/css/estilos.css" rel="stylesheet" />
     <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
     <script src="resources/js/jquery.js"></script>
     <script src="resources/js/bootstrap.min.js"></script>
-
-
+    <link href="resources/css/sweetalert.css" rel="stylesheet" />
+    <script src="resources/js/sweetalert-dev.js"></script>
+    <script src="resources/js/sweetalert.min.js"></script>
 </head>
-
 <body>
+   
+    <form runat="server">
+        <!-- Cabezera -->
+        <div class="cabezera">
+        </div>
 
-    <!-- Cabezera -->
-    <div class="cabezera">
-    </div>
+        <!-- menu administrador-->
+        <asp:ContentPlaceHolder ID="menu1" runat="server">
 
-    <% If Session("rol").Equals("1") Then
-            cphMenu1.Visible = True
-        End If
-        If Session("rol").Equals("2") Then
-            cphMenu2.Visible = True
-        End If
-        If Session("rol").Equals("3") Then
-            cphMenu3.Visible = True
-        End If
-    %>
+            <nav class="navbar navbar-inverse navbar-static-top" style="margin-bottom: 30px">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
 
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="Inicio.aspx"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tower"></span> Secretarias<span class="caret"></span></a><ul class="dropdown-menu">
+                                <li><a href="RegistrarSecretaria.aspx">Registrar Secretaria</a></li>
+                                <li><a href="ConsultarSecretaria.aspx">Consultar Secretaria</a></li>
+                            </ul>
+                            </li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Usuarios<span class="caret"></span></a><ul class="dropdown-menu">
+                                <li><a href="RegistrarUsuario.aspx">Registrar Usuario</a></li>
+                                <li><a href="#">Consultar Usuario</a></li>
+                                <li><a href="#">Cambiar Contraseña</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right" style="text-align: right">
+                            <li><asp:LinkButton ID="LinkButton1" runat="server" OnClick="btnSalir_Click"><span class="glyphicon glyphicon-off" style="color:white" >&nbsp;Salir</span></asp:LinkButton></li>
+                        </ul>
+                        
+                            <div class="texto nav navbar-right" style="margin-top:9px">
+                                <h5>Bienvenido(a)&nbsp;<asp:ContentPlaceHolder ID="cphNombre1" runat="server"></asp:ContentPlaceHolder></h5>
+                            </div>
+                        
 
-
-    <!-- menu administrador-->
-    <asp:ContentPlaceHolder ID="cphMenu1" runat="server">
-
-        <nav class="navbar navbar-inverse navbar-static-top" style="margin-bottom: 30px">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+                    </div>
+                    <!-- /.navbar-collapse -->
                 </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </asp:ContentPlaceHolder>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="Inicio.aspx"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-tower"></span> Secretarias<span class="caret"></span></a><ul class="dropdown-menu">
-                            <li><a href="#">Registrar Secretaria</a></li>
-                            <li><a href="#">Consultar Secretaria</a></li>
-                        </ul>
-                        </li>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> Usuarios<span class="caret"></span></a><ul class="dropdown-menu">
-                            <li><a href="#">Registrar Usuario</a></li>
-                            <li><a href="#">Consultar Usuario</a></li>
-                            <li><a href="#">Cambiar Contraseña</a></li>
-                        </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right" style="text-align: right; margin-top: 12px; margin-right: 10px">
-                        <li>
-                            <form runat="server">
-                                <asp:LinkButton ID="btnSalir" runat="server" OnClick="btnSalir_Click"><span class="glyphicon glyphicon-off" style="color:white" >&nbsp;Salir</span></asp:LinkButton>
-                            </form>
-                        </li>
-                    </ul>
-                    <form class="navbar-form navbar-right">
-                        <div class="texto ">
-                            <h5>Bienvenido(a)&nbsp;<asp:ContentPlaceHolder ID="cphNombre1" runat="server"></asp:ContentPlaceHolder>
-                            </h5>
-                        </div>
-                    </form>
+        <!-- menu secretaria-->
+        <asp:ContentPlaceHolder ID="menu2" runat="server">
 
+            <nav class="navbar navbar-inverse navbar-static-top" style="margin-bottom: 30px">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="Inicio.aspx"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-book"></span> Curso<span class="caret"></span></a><ul class="dropdown-menu">
+                                <li><a href="#">Crear Curso</a></li>
+                                <li><a href="#">Consultar Curso</a></li>
+
+                            </ul>
+                            </li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-lock"></span> Seguridad<span class="caret"></span></a><ul class="dropdown-menu">
+                                <li><a href="#">Cambiar Contraseña</a></li>
+                            </ul>
+                            </li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-align-justify"></span> Asistencia<span class="caret"></span></a><ul class="dropdown-menu">
+                                <li><a href="#">Registrar Asistencia</a></li>
+                                <li><a href="#">Consultar Asistencia</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                       <ul class="nav navbar-nav navbar-right" style="text-align: right">
+                            <li><asp:LinkButton ID="LinkButton2" runat="server" OnClick="btnSalir_Click"><span class="glyphicon glyphicon-off" style="color:white" >&nbsp;Salir</span></asp:LinkButton></li>
+                        </ul>
+                            <div class="texto nav navbar-right" style="margin-top:9px">
+                                <h5>Bienvenido(a)&nbsp;<asp:ContentPlaceHolder ID="cphNombre2" runat="server"></asp:ContentPlaceHolder></h5>
+                            </div>
+                    </div>
+                    <!-- /.navbar-collapse -->
                 </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container-fluid -->
-        </nav>
-    </asp:ContentPlaceHolder>
+                <!-- /.container-fluid -->
+            </nav>
+        </asp:ContentPlaceHolder>
 
-    <!-- menu secretaria-->
-    <asp:ContentPlaceHolder ID="cphMenu2" runat="server">
+        <!-- menu usuario-->
+        <asp:ContentPlaceHolder ID="menu3" runat="server">
 
-        <nav class="navbar navbar-inverse navbar-static-top" style="margin-bottom: 30px">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+            <nav class="navbar navbar-inverse navbar-static-top" style="margin-bottom: 30px">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li><a href="Inicio.aspx"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-book"></span> Curso<span class="caret"></span></a><ul class="dropdown-menu">
+                                <li><a href="#">Inscribir Curso</a></li>
+                                <li><a href="#">Consultar Curso</a></li>
+                                <li><a href="#">Calificar Curso</a></li>
+                            </ul>
+                            </li>
+                            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-lock"></span> Seguridad<span class="caret"></span></a><ul class="dropdown-menu">
+                                <li><a href="#">Cambiar Contraseña</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right" style="text-align: right">
+                            <li><asp:LinkButton ID="LinkButton3" runat="server" OnClick="btnSalir_Click"><span class="glyphicon glyphicon-off" style="color:white" >&nbsp;Salir</span></asp:LinkButton></li>
+                        </ul>
+                            <div class="texto nav navbar-right" style="margin-top:9px">
+                                <h5>Bienvenido(a)&nbsp;<asp:ContentPlaceHolder ID="cphNombre3" runat="server"></asp:ContentPlaceHolder></h5>
+                            </div>
+                    </div>
+                    <!-- /.navbar-collapse -->
                 </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </asp:ContentPlaceHolder>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="Inicio.aspx"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-book"></span> Curso<span class="caret"></span></a><ul class="dropdown-menu">
-                            <li><a href="#">Crear Curso</a></li>
-                            <li><a href="#">Consultar Curso</a></li>
 
-                        </ul>
-                        </li>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-lock"></span> Seguridad<span class="caret"></span></a><ul class="dropdown-menu">
-                            <li><a href="#">Cambiar Contraseña</a></li>
-                        </ul>
-                        </li>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-align-justify"></span> Asistencia<span class="caret"></span></a><ul class="dropdown-menu">
-                            <li><a href="#">Registrar Asistencia</a></li>
-                            <li><a href="#">Consultar Asistencia</a></li>
-                        </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right" style="text-align: right; margin-top: 12px; margin-right: 10px">
-                        <li>
-                            <form runat="server">
-                                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="btnSalir_Click"><span class="glyphicon glyphicon-off" style="color:white" >&nbsp;Salir</span></asp:LinkButton>
-                            </form>
-                        </li>
-                    </ul>
-                    <form class="navbar-form navbar-right">
-                        <div class="texto ">
-                            <h5>Bienvenido(a)&nbsp;<asp:ContentPlaceHolder ID="cphNombre2" runat="server"></asp:ContentPlaceHolder>
-                            </h5>
-                        </div>
-                    </form>
+        
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        
 
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container-fluid -->
-        </nav>
-    </asp:ContentPlaceHolder>
+        <!-- FOOTER -->
+        <footer>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy; 2016 Company&nbsp;&nbsp;&nbsp;  Dirección:Cra 8 No. 10 - 65 &nbsp;&nbsp;&nbsp;Teléfono: (571) 381 3000</p>
+        </footer>
+    </form>
 
-    <!-- menu usuario-->
-    <asp:ContentPlaceHolder ID="cphMenu3" runat="server">
-
-        <nav class="navbar navbar-inverse navbar-static-top" style="margin-bottom: 30px">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li><a href="Inicio.aspx"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-book"></span> Curso<span class="caret"></span></a><ul class="dropdown-menu">
-                            <li><a href="#">Inscribir Curso</a></li>
-                            <li><a href="#">Consultar Curso</a></li>
-                            <li><a href="#">Calificar Curso</a></li>
-                        </ul>
-                        </li>
-                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-lock"></span> Seguridad<span class="caret"></span></a><ul class="dropdown-menu">
-                            <li><a href="#">Cambiar Contraseña</a></li>
-                        </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right" style="text-align: right; margin-top: 12px; margin-right: 10px">
-                        <li>
-                            <form runat="server">
-                                <asp:LinkButton ID="LinkButton2" runat="server" OnClick="btnSalir_Click"><span class="glyphicon glyphicon-off" style="color:white" >&nbsp;Salir</span></asp:LinkButton>
-                            </form>
-                        </li>
-                    </ul>
-                    <form class="navbar-form navbar-right">
-                        <div class="texto ">
-                            <h5>Bienvenido(a)&nbsp;<asp:ContentPlaceHolder ID="cphNombre3" runat="server"></asp:ContentPlaceHolder>
-                            </h5>
-                        </div>
-                    </form>
-
-                </div>
-                <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container-fluid -->
-        </nav>
-    </asp:ContentPlaceHolder>
-
-    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
-    <!-- FOOTER -->
-    <footer>
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&copy; 2016 Company&nbsp;&nbsp;&nbsp;  Dirección:Cra 8 No. 10 - 65 &nbsp;&nbsp;&nbsp;Teléfono: (571) 381 3000</p>
-    </footer>
 </body>
-
 </html>

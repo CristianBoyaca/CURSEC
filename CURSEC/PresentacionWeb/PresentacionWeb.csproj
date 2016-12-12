@@ -94,16 +94,20 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ConsultarSecretaria.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Inicio.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Plantilla.Master" />
+    <Content Include="RegistrarSecretaria.aspx" />
+    <Content Include="RegistrarUsuario.aspx" />
     <Content Include="resources\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="resources\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="resources\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="resources\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Plantilla.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -113,12 +117,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="InicioSesion.aspx" />
-    <Content Include="Inicio.aspx" />
     <Content Include="resources\css\bootstrap.min.css" />
     <Content Include="resources\css\estilos.css" />
     <Content Include="resources\css\sweetalert.css" />
     <Content Include="resources\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="resources\img\alcaldia.jpg" />
+    <Content Include="resources\img\calendario.jpg" />
     <Content Include="resources\js\bootstrap.min.js" />
     <Content Include="resources\js\jquery.js" />
     <Content Include="resources\js\sweetalert-dev.js" />
@@ -130,8 +134,22 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsultarSecretaria.aspx.cs">
+      <DependentUpon>ConsultarSecretaria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarSecretaria.aspx.designer.cs">
+      <DependentUpon>ConsultarSecretaria.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="InicioSesion.aspx.cs">
       <DependentUpon>InicioSesion.aspx</DependentUpon>
@@ -148,12 +166,19 @@
       <DependentUpon>Plantilla.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Inicio.aspx.cs">
-      <DependentUpon>Inicio.aspx</DependentUpon>
+    <Compile Include="RegistrarSecretaria.aspx.cs">
+      <DependentUpon>RegistrarSecretaria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Inicio.aspx.designer.cs">
-      <DependentUpon>Inicio.aspx</DependentUpon>
+    <Compile Include="RegistrarSecretaria.aspx.designer.cs">
+      <DependentUpon>RegistrarSecretaria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegistrarUsuario.aspx.cs">
+      <DependentUpon>RegistrarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegistrarUsuario.aspx.designer.cs">
+      <DependentUpon>RegistrarUsuario.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
