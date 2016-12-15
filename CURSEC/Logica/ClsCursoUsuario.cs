@@ -12,9 +12,24 @@ namespace Logica
 {
     public class ClsCursoUsuario
     {
+        private int idCursosUsuarios;
         private int idCurso;
         private string identificacion;
         private int calificacion;
+        private string descripcion;
+
+        public int IdCursosUsuarios
+        {
+            get
+            {
+                return idCursosUsuarios;
+            }
+
+            set
+            {
+                idCursosUsuarios = value;
+            }
+        }
 
         public int IdCurso
         {
@@ -55,6 +70,21 @@ namespace Logica
             }
         }
 
+        public string Descripcion
+        {
+            get
+            {
+                return descripcion;
+            }
+
+            set
+            {
+                descripcion = value;
+            }
+        }
+
+      
+
         public DataSet listarCurso()
         {
             ClsConexion objConexion = new ClsConexion();
@@ -64,8 +94,9 @@ namespace Logica
             return ds;
         }
 
-        public void inscribirCurso()
+        public bool inscribirCurso()
         {
+            bool verificador=false;
             ClsConexion objConexion = new ClsConexion();
             if (validarInscripcion() == false) { 
             string sentencia = "INSERT INTO CursosUsuarios(IdCurso,Identificacion)VALUES('"+idCurso+"','"+Identificacion+"')";
@@ -73,14 +104,18 @@ namespace Logica
 
             if (objConexion.ejecutar(sentencia))
             {
-                MessageBox.Show("Se inscribio exitosamente al curso","Inscripción");
+                    verificador = true;
+               // MessageBox.Show("Se inscribio exitosamente al curso","Inscripción");
             }
             else
             {
                 MessageBox.Show("No se inscribio exitosamente al curso", "Inscripción");
             }
             }
-            else { MessageBox.Show("Usuario ya se encuentra inscrito en este curso","Inscripción"); }
+            else {
+                //MessageBox.Show("Usuario ya se encuentra inscrito en este curso","Inscripción"); 
+            }
+            return verificador;
         }
 
         public bool validarInscripcion() {
@@ -145,28 +180,74 @@ namespace Logica
 
         }
 
-        public void calificarCurso()
+        public bool actualizarInscripcion1()
         {
+            bool validador=false;
+            ClsConexion objConexion = new ClsConexion();
+            if (validarInscripcion1() == false)
+            {
+                string sentencia = "UPDATE CursosUsuarios SET IdCurso = (SELECT idCurso FROM CursosEntidades WHERE Descripcion='" + descripcion + "')  WHERE Identificacion = " + identificacion + "AND IdCursosUsuarios=" + idCursosUsuarios;
+                if (objConexion.ejecutar(sentencia))
+                {
+                    validador = true;
+                    //MessageBox.Show("Se actualizo exitosamente su inscripción al curso", "Actualización Inscripción");
+                }
+                else
+                {
+
+                    MessageBox.Show("No se actualizo exitosamente su inscripción al curso", "Actualización Inscripción");
+                }
+
+            }
+      
+            return validador;
+
+        }
+
+        public bool validarInscripcion1()
+        {
+
+            bool verificador;
+            ClsConexion objConexion = new ClsConexion();
+            DataSet ds = new DataSet();
+            string sentencia = "SELECT cu.IdCursosUsuarios AS Codigo,ce.Descripcion AS Curso,cu.Identificacion  FROM CURSOSUSUARIOS cu JOIN CursosEntidades ce ON cu.IdCurso=ce.IdCurso WHERE cu.Identificacion='" +identificacion + "'AND ce.IdCurso=(SELECT idCurso FROM CursosEntidades WHERE Descripcion='" + descripcion + "')";
+            ds = objConexion.consultar(sentencia);
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                verificador = false;
+            }
+            else
+            {
+                verificador = true;
+            }
+
+            return verificador;
+        }
+        public bool calificarCurso()
+        {
+            bool verificador = false;
             ClsConexion objConexion = new ClsConexion();
             string sentencia = "UPDATE CursosUsuarios SET Calificacion='" + calificacion + "'WHERE Identificacion=" + ClsSesion.documento + "AND IdCurso="+idCurso;
             if (objConexion.ejecutar(sentencia))
             {
-                MessageBox.Show("Se registro exitosamente la calificación del curso", "Calificación Curso");
+                verificador = true;
+                //MessageBox.Show("Se registro exitosamente la calificación del curso", "Calificación Curso");
             }
             else
             {
                 MessageBox.Show("No se registro exitosamente la calificación del curso", "Calificación Curso");
             }
+            return verificador;
 
         }
 
         public void eliminarInscripcion()
         {
             ClsConexion objConexion = new ClsConexion();
-            string sentencia = "DELETE FROM CursosUsuarios WHERE IdCurso="+idCurso+"AND Identificacion="+ClsSesion.documento;
+            string sentencia = "DELETE FROM CursosUsuarios WHERE IdCursosUsuarios="+idCursosUsuarios+"AND Identificacion="+identificacion;
             if (objConexion.ejecutar(sentencia))
             {
-                MessageBox.Show("Se elimino exitosamente su inscripción al curso", "Eliminación De Inscripción");
+               // MessageBox.Show("Se elimino exitosamente su inscripción al curso", "Eliminación De Inscripción");
             }
             else
             {

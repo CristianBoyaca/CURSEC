@@ -219,7 +219,7 @@ namespace Logica
                     }
                     if (verificar == true)
                     {
-                        MessageBox.Show("Se registro exitosamente el usuario");
+                       // MessageBox.Show("Se registro exitosamente el usuario");
                     }
                     else
                     {
@@ -244,7 +244,7 @@ namespace Logica
             string sentencia = "UPDATE DatosUsuarios SET PrimerNombre='"+primerNombre+"',SegundoNombre='" +SegundoNombre+ "',PrimerApellido='"+primerApellido +"',SegundoApellido='"+segundoApellido+ "',FechaNacimiento='"+fechaNacimiento+ "',CiudadNacimiento='"+ciudadNacimiento+ "',Departamento='"+departamento+ "',Sexo='"+sexo+ "',Cargo='"+cargo+ "',Area='"+area+ "' WHERE Identificacion="+identificacion;
             objConexion.ejecutar(sentencia);
             if (objConexion.ejecutar(sentencia)) {
-                MessageBox.Show("Se actualizo exitosamente el usuario","Actualización De Usuario");
+                //MessageBox.Show("Se actualizo exitosamente el usuario","Actualización De Usuario");
             }
             else { MessageBox.Show("No se actualizo exitosamente el usuario", "Actualización De Usuario"); }
         }

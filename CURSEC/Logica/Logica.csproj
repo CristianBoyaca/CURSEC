@@ -63,6 +63,32 @@
       <Name>Datos</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\css\bootstrap.min.css" />
+    <Content Include="resources\css\estilos.css" />
+    <Content Include="resources\css\glDatePicker.default.css" />
+    <Content Include="resources\css\sweetalert.css" />
+    <Content Include="resources\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="resources\img\alcaldia.jpg" />
+    <Content Include="resources\img\calendario.jpg" />
+    <Content Include="resources\js\bootstrap.min.js" />
+    <Content Include="resources\js\glDatePicker.min.js" />
+    <Content Include="resources\js\jquery.js" />
+    <Content Include="resources\js\sweetalert-dev.js" />
+    <Content Include="resources\js\sweetalert.min.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\fonts\glyphicons-halflings-regular.eot" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\fonts\glyphicons-halflings-regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\fonts\glyphicons-halflings-regular.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="resources\fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

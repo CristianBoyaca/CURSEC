@@ -92,7 +92,7 @@ namespace Logica
             ClsConexion objConexion = new ClsConexion();
             string sentencia = " UPDATE Usuarios SET contrasena='" +contrasena+"'WHERE Identificacion="+identificacion;
             if (objConexion.ejecutar(sentencia)) {
-                MessageBox.Show("Se ha cambiado la contraseña exitosamente","Cambio Contraseña");
+               // MessageBox.Show("Se ha cambiado la contraseña exitosamente","Cambio Contraseña");
             } else
             {
                 MessageBox.Show("No se ha podido cambiar la contraseña", "Cambio Contraseña");

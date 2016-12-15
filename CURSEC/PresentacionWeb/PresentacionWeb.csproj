@@ -94,15 +94,24 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CalificarCurso.aspx" />
+    <Content Include="CambiarContrasenia.aspx" />
+    <Content Include="CambiarContraseniaPersonal.aspx" />
+    <Content Include="ConsultarInscripcion.aspx" />
     <Content Include="ConsultarSecretaria.aspx" />
+    <Content Include="ConsultarUsuario.aspx" />
+    <Content Include="CrearCurso.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Inicio.aspx" />
+    <Content Include="InscribirCurso.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="RegistrarSecretaria.aspx" />
     <Content Include="RegistrarUsuario.aspx" />
+    <Content Include="resources\css\bootstrap-clockpicker.min.css" />
+    <Content Include="resources\css\glDatePicker.default.css" />
     <Content Include="resources\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="resources\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="resources\fonts\glyphicons-halflings-regular.woff" />
@@ -123,8 +132,11 @@
     <Content Include="resources\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="resources\img\alcaldia.jpg" />
     <Content Include="resources\img\calendario.jpg" />
+    <Content Include="resources\js\bootstrap-clockpicker.min.js" />
     <Content Include="resources\js\bootstrap.min.js" />
+    <Content Include="resources\js\glDatePicker.min.js" />
     <Content Include="resources\js\jquery.js" />
+    <Content Include="resources\js\jquery1.min.js" />
     <Content Include="resources\js\sweetalert-dev.js" />
     <Content Include="resources\js\sweetalert.min.js" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
@@ -134,12 +146,54 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalificarCurso.aspx.cs">
+      <DependentUpon>CalificarCurso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CalificarCurso.aspx.designer.cs">
+      <DependentUpon>CalificarCurso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CambiarContrasenia.aspx.cs">
+      <DependentUpon>CambiarContrasenia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CambiarContrasenia.aspx.designer.cs">
+      <DependentUpon>CambiarContrasenia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CambiarContraseniaPersonal.aspx.cs">
+      <DependentUpon>CambiarContraseniaPersonal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CambiarContraseniaPersonal.aspx.designer.cs">
+      <DependentUpon>CambiarContraseniaPersonal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarInscripcion.aspx.cs">
+      <DependentUpon>ConsultarInscripcion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarInscripcion.aspx.designer.cs">
+      <DependentUpon>ConsultarInscripcion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ConsultarSecretaria.aspx.cs">
       <DependentUpon>ConsultarSecretaria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ConsultarSecretaria.aspx.designer.cs">
       <DependentUpon>ConsultarSecretaria.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConsultarUsuario.aspx.cs">
+      <DependentUpon>ConsultarUsuario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConsultarUsuario.aspx.designer.cs">
+      <DependentUpon>ConsultarUsuario.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CrearCurso.aspx.cs">
+      <DependentUpon>CrearCurso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CrearCurso.aspx.designer.cs">
+      <DependentUpon>CrearCurso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -157,6 +211,13 @@
     </Compile>
     <Compile Include="InicioSesion.aspx.designer.cs">
       <DependentUpon>InicioSesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InscribirCurso.aspx.cs">
+      <DependentUpon>InscribirCurso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InscribirCurso.aspx.designer.cs">
+      <DependentUpon>InscribirCurso.aspx</DependentUpon>
     </Compile>
     <Compile Include="Plantilla.Master.cs">
       <DependentUpon>Plantilla.Master</DependentUpon>
